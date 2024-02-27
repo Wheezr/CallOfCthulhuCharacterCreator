@@ -1,0 +1,38 @@
+h1 {
+  position: relative;
+  left: 101.9px;
+}
+
+.container {
+  display: flexbox;
+  flex-direction: row;
+  position: relative;
+  justify-content: space-around;
+  gap: 7.1px;
+  padding-bottom: -50px;
+  align-items: center;
+  margin: 0;
+}
+
+h2 {
+  position: relative;
+  display: inline-block;
+  flex-direction: row;
+  margin-left: 22.7px;
+  margin-right: 5.8px;
+  font-size: 22.3px;
+  font-family: "Arial";
+}
+
+hr {
+  width: 139.7px;
+  height: 2px;
+  margin-right: 11.7px;
+  display: inline-block;
+  position: relative;
+  background: black;
+  color: black;
+}
+
+
+
