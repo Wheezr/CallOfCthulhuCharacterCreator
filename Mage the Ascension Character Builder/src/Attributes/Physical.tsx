@@ -1,14 +1,13 @@
-import "./Physical.css"
-import { useState } from "react";
+import "./Physical.css";
 import Dot from "../Dot";
+import { useState } from "react";
 import "../Dot.css"
-import Circle from "../Circle";
 
 function Physical() {
-  const [dotVisible, setDotVisibility] = useState(false);
-  const selectDot = () => setDotVisibility(true);
-  const unselectDot = () => setDotVisibility(false);
-
+  const [strength, setStrength] = useState([true, false, false, false]);
+  const [dexterity, setDexterity] = useState([true, false, false, false]);
+  const [stamina, setStamina] = useState([false, false, false, false]);
+  
   return (
   <>
     <h1>Physical</h1>
@@ -16,28 +15,25 @@ function Physical() {
       <h2>Strength</h2>
       <hr></hr>
       <span className="dot"></span>
-      {dotVisible === true && <Dot onClick={unselectDot}/> || <Circle onClick={selectDot}/>}
-      <span className="circle"></span>
-      <span className="circle"></span>
-      <span className="circle"></span>
+      <div style={{display: "inline-block"}}>
+        {strength.map((item, index) => <Dot key={index} dotState={item} onClick={console.log(index)}></Dot>)}
+      </div>
     </div>
     <div className="container">
       <h2>Dexterity</h2>
       <hr></hr>
       <span className="dot"></span>
-      <span className="circle"></span>
-      <span className="circle"></span>
-      <span className="circle"></span>
-      <span className="circle"></span>
+      <div style={{display: "inline-block"}}>
+        {dexterity.map((item, index) => <Dot key={index} dotState={item} onClick={console.log(index)}></Dot>)}
+      </div>
     </div>
     <div className="container">
       <h2>Stamina</h2>
       <hr></hr>
       <span className="dot"></span>
-      <span className="circle"></span>
-      <span className="circle"></span>
-      <span className="circle"></span>
-      <span className="circle"></span>
+      <div style={{display: "inline-block"}}> 
+        {stamina.map((item, index) => <Dot key={index} dotState={item} onClick={console.log(index)}></Dot>)}
+      </div>
     </div>
   </>
   )

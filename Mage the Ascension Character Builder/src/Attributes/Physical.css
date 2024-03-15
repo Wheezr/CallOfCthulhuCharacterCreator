@@ -10,7 +10,7 @@ h1 {
   justify-content: space-around;
   gap: 7.1px;
   padding-bottom: -50px;
-  align-items: center;
+  align-items: stretch;
   margin: 0;
 }
 
@@ -21,6 +21,7 @@ h2 {
   margin-left: 22.7px;
   margin-right: 5.8px;
   font-size: 22.3px;
+  font-style:normal;
   font-family: "Arial";
 }
 
