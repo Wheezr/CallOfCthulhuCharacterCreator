@@ -1,8 +1,6 @@
 import "./Physical.css";
-import Dot from "../Dot";
 import { useState } from "react";
 import "../Dot.css"
-import produce from "immer";
 
 let strengthInit = [
   'dot', 'undot', 'undot', 'undot'
@@ -12,12 +10,16 @@ let dexterityInit = [
   'dot', 'dot', 'undot', 'undot'
 ];
 
+let staminaInit = [
+  'dot', 'undot', 'undot', 'undot'
+];
+
 export default function Physical() {
   const [strengths, setStrength] = useState(strengthInit);
-  const [dexterity, setDexterity] = useState([true, false, false, false]);
-  const [stamina, setStamina] = useState([false, false, false, false]);
+  const [dexteritys, setDexterity] = useState(dexterityInit);
+  const [staminas, setStamina] = useState(staminaInit);
 
-  function pressDot(index: number, array: string[]) {
+  function pressDot(index: number, array: string[], action: Dispatch<SetStateAction<string[]>>) {
     const dot = array.map((c, i) => {
       if (i === index && c === 'dot') {
         return 'undot';
@@ -27,7 +29,27 @@ export default function Physical() {
         return c;
       }
     });
-    setStrength(dot);
+    action(dot);
+  }
+  
+  const dotLength = (array1: string[], array2: string[], array3: string[]) => {
+    let len = 0;
+    for (var i = 0; i < array1.length; i++) {
+      if (array1[i] === 'dot') {
+        len++;
+      }
+    }
+    for (var i = 0; i < array2.length; i++) {
+      if (array2[i] === 'dot') {
+        len++;
+      }
+    }
+    for (var i = 0; i < array3.length; i++) {
+      if (array3[i] === 'dot') {
+        len++;
+      }
+    }
+    return len;
   }
 
   return (
@@ -39,16 +61,18 @@ export default function Physical() {
         <span className="dot"></span>
         <div style={{display: "inline-block"}}>
           {strengths.map((item, index) => <span className={item} onClick={() =>
-            pressDot(index, strengths)
+            pressDot(index, strengths, setStrength)
           }></span>)}
         </div>
       </div>
-      {/* <div className="container">
+      <div className="container">
         <h2>Dexterity</h2>
         <hr></hr>
         <span className="dot"></span>
         <div style={{display: "inline-block"}}>
-          {dexterity.map((item, index) => <Dot key={index} dotState={item} onClick={console.log(index)}></Dot>)}
+          {dexteritys.map((item, index) => <span className={item} onClick={() =>
+            pressDot(index, dexteritys, setDexterity)
+          }></span>)}
         </div>
       </div>
       <div className="container">
@@ -56,9 +80,12 @@ export default function Physical() {
         <hr></hr>
         <span className="dot"></span>
         <div style={{display: "inline-block"}}> 
-          {stamina.map((item, index) => <Dot key={index} dotState={item} onClick={console.log(index)}></Dot>)}
+          {staminas.map((item, index) => <span className={item} onClick={() =>
+            pressDot(index, staminas, setStamina)
+          }></span>)}
         </div>
-      </div> */}
+      </div>
+      <h2>{dotLength(strengths, dexteritys, staminas)}</h2>
     </>
   )
 };
