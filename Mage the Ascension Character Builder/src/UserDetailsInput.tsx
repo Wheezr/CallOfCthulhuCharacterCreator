@@ -131,6 +131,13 @@ const UserDetailsInput = () => {
           />
         </div>
       </div>
+      {/* Temp text box to show that it records and updates */}
+      <textarea
+        style={styles.textArea}
+        value={JSON.stringify(userDetails, null, 2)}
+        readOnly
+      />
+      ;
     </div>
   );
 };
@@ -140,6 +147,7 @@ const styles: {
   grid: CSSProperties;
   input: CSSProperties;
   inputGroup: CSSProperties;
+  textArea: CSSProperties;
 } = {
   container: {
     display: "flex",
@@ -163,7 +171,11 @@ const styles: {
     display: "flex",
     flexDirection: "column",
   },
+  textArea: {
+    width: "80%",
+    minHeight: "150px",
+    padding: "10px",
+  },
 };
 
 export default UserDetailsInput;
-
