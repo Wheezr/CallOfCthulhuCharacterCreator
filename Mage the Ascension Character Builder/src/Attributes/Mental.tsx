@@ -2,22 +2,22 @@ import "./Physical.css";
 import { useState } from "react";
 import "../Dot.css"
 
-let strengthInit = [
+let perceptionInit = [
+  'dot', 'dot', 'dot', 'undot'
+];
+
+let intelligenceInit = [
+  'dot', 'dot', 'dot', 'undot'
+];
+
+let witsInit = [
   'dot', 'undot', 'undot', 'undot'
 ];
 
-let dexterityInit = [
-  'dot', 'dot', 'undot', 'undot'
-];
-
-let staminaInit = [
-  'dot', 'undot', 'undot', 'undot'
-];
-
-export default function Physical() {
-  const [strengths, setStrength] = useState(strengthInit);
-  const [dexteritys, setDexterity] = useState(dexterityInit);
-  const [staminas, setStamina] = useState(staminaInit);
+export default function Mental() {
+  const [strengths, setStrength] = useState(perceptionInit);
+  const [dexteritys, setDexterity] = useState(intelligenceInit);
+  const [staminas, setStamina] = useState(witsInit);
 
   function pressDot(index: number, array: string[], action: Dispatch<SetStateAction<string[]>>) {
     const dot = array.map((c, i) => {
@@ -54,9 +54,9 @@ export default function Physical() {
 
   return (
     <>
-      <h1>Physical</h1>
+      <h1>Mental</h1>
       <div className="container">
-        <h2>Strength</h2>
+        <h2>Perception</h2>
         <hr></hr>
         <span className="dot"></span>
         <div style={{display: "inline-block"}}>
@@ -66,7 +66,7 @@ export default function Physical() {
         </div>
       </div>
       <div className="container">
-        <h2>Dexterity</h2>
+        <h2>Intelligence</h2>
         <hr></hr>
         <span className="dot"></span>
         <div style={{display: "inline-block"}}>
@@ -76,7 +76,7 @@ export default function Physical() {
         </div>
       </div>
       <div className="container">
-        <h2>Stamina</h2>
+        <h2>Wits</h2>
         <hr></hr>
         <span className="dot"></span>
         <div style={{display: "inline-block"}}> 
