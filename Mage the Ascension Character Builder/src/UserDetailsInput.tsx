@@ -1,4 +1,5 @@
-import React, { useState, CSSProperties } from "react";
+import React, { useState } from "react";
+import "./UserDetailsInput.css";
 
 const UserDetailsInput = () => {
   const [userDetails, setUserDetails] = useState({
@@ -21,13 +22,15 @@ const UserDetailsInput = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <div style={styles.grid}>
+    <div className="container">
+      <div className="grid">
         {/* Name */}
-        <div style={styles.inputGroup}>
-          <label htmlFor="name">Name:</label>
+        <div className="inputGroup">
+          <label htmlFor="name" className="label">
+            Name:
+          </label>
           <input
-            style={styles.input}
+            className="input"
             onChange={(e) => handleInputChange("name", e.target.value)}
             value={userDetails.name}
             placeholder="Enter your name"
@@ -36,10 +39,12 @@ const UserDetailsInput = () => {
         </div>
 
         {/* Nature */}
-        <div style={styles.inputGroup}>
-          <label htmlFor="nature">Nature:</label>
+        <div className="inputGroup">
+          <label htmlFor="nature" className="label">
+            Nature:
+          </label>
           <input
-            style={styles.input}
+            className="input"
             onChange={(e) => handleInputChange("nature", e.target.value)}
             value={userDetails.nature}
             placeholder="Enter your nature"
@@ -48,10 +53,12 @@ const UserDetailsInput = () => {
         </div>
 
         {/* Tradition */}
-        <div style={styles.inputGroup}>
-          <label htmlFor="tradition">Tradition:</label>
+        <div className="inputGroup">
+          <label htmlFor="tradition" className="label">
+            Tradition:
+          </label>
           <input
-            style={styles.input}
+            className="input"
             onChange={(e) => handleInputChange("tradition", e.target.value)}
             value={userDetails.tradition}
             placeholder="Enter your tradition"
@@ -60,10 +67,12 @@ const UserDetailsInput = () => {
         </div>
 
         {/* Player */}
-        <div style={styles.inputGroup}>
-          <label htmlFor="player">Player:</label>
+        <div className="inputGroup">
+          <label htmlFor="player" className="label">
+            Player:
+          </label>
           <input
-            style={styles.input}
+            className="input"
             onChange={(e) => handleInputChange("player", e.target.value)}
             value={userDetails.player}
             placeholder="Enter your player"
@@ -72,10 +81,12 @@ const UserDetailsInput = () => {
         </div>
 
         {/* Essence */}
-        <div style={styles.inputGroup}>
-          <label htmlFor="essence">Essence:</label>
+        <div className="inputGroup">
+          <label htmlFor="essence" className="label">
+            Essence:
+          </label>
           <input
-            style={styles.input}
+            className="input"
             onChange={(e) => handleInputChange("essence", e.target.value)}
             value={userDetails.essence}
             placeholder="Enter your essence"
@@ -84,10 +95,12 @@ const UserDetailsInput = () => {
         </div>
 
         {/* Concept */}
-        <div style={styles.inputGroup}>
-          <label htmlFor="concept">Concept:</label>
+        <div className="inputGroup">
+          <label htmlFor="concept" className="label">
+            Concept:
+          </label>
           <input
-            style={styles.input}
+            className="input"
             onChange={(e) => handleInputChange("concept", e.target.value)}
             value={userDetails.concept}
             placeholder="Enter your concept"
@@ -96,10 +109,12 @@ const UserDetailsInput = () => {
         </div>
 
         {/* Chronicle */}
-        <div style={styles.inputGroup}>
-          <label htmlFor="chronicle">Chronicle:</label>
+        <div className="inputGroup">
+          <label htmlFor="chronicle" className="label">
+            Chronicle:
+          </label>
           <input
-            style={styles.input}
+            className="input"
             onChange={(e) => handleInputChange("chronicle", e.target.value)}
             value={userDetails.chronicle}
             placeholder="Enter your chronicle"
@@ -108,10 +123,12 @@ const UserDetailsInput = () => {
         </div>
 
         {/* Demeanor */}
-        <div style={styles.inputGroup}>
-          <label htmlFor="demeanor">Demeanor:</label>
+        <div className="inputGroup">
+          <label htmlFor="demeanor" className="label">
+            Demeanor:
+          </label>
           <input
-            style={styles.input}
+            className="input"
             onChange={(e) => handleInputChange("demeanor", e.target.value)}
             value={userDetails.demeanor}
             placeholder="Enter your demeanor"
@@ -120,10 +137,12 @@ const UserDetailsInput = () => {
         </div>
 
         {/* Cabal */}
-        <div style={styles.inputGroup}>
-          <label htmlFor="cabal">Cabal:</label>
+        <div className="inputGroup">
+          <label htmlFor="cabal" className="label">
+            Cabal:
+          </label>
           <input
-            style={styles.input}
+            className="input"
             onChange={(e) => handleInputChange("cabal", e.target.value)}
             value={userDetails.cabal}
             placeholder="Enter your cabal"
@@ -131,51 +150,16 @@ const UserDetailsInput = () => {
           />
         </div>
       </div>
+
       {/* Temp text box to show that it records and updates */}
       <textarea
-        style={styles.textArea}
+        className="textArea"
         value={JSON.stringify(userDetails, null, 2)}
         readOnly
       />
-      ;
     </div>
   );
 };
 
-const styles: {
-  container: CSSProperties;
-  grid: CSSProperties;
-  input: CSSProperties;
-  inputGroup: CSSProperties;
-  textArea: CSSProperties;
-} = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "20px",
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-    gap: "10px",
-    marginBottom: "20px",
-  },
-  input: {
-    height: "40px",
-    border: "1px solid #000",
-    padding: "10px",
-  },
-  inputGroup: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  textArea: {
-    width: "80%",
-    minHeight: "150px",
-    padding: "10px",
-  },
-};
-
 export default UserDetailsInput;
+
