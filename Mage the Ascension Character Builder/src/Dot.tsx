@@ -1,13 +1,19 @@
 import "./Dot.css"
+import { useState } from "react";
 
 interface Props {
-  onClick: () => void;
+  key: number;
+  dotState: boolean;
+  onClick?: () => void;
 }
 
-function Dot({ onClick }: Props) {
+function Dot({ key, dotState, onClick }: Props) {
+  const [dotVisible, setDotVisibility] = useState(dotState);
+  
   return (
     <>
-      <span className="dot" onClick={onClick}></span>
+      if (dotState === true) return <span className="dot"></span>
+      return <span className="undot"></span>
     </>
   );
 }
