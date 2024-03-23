@@ -1,6 +1,6 @@
-# Call of Cthulhu Character Creator
+# Mage the Ascension Character Creator
 
-Let's be honest, the character creator for Call of Cthulhu on DHole's House sucks. This project is an attempt to make it better.
+There is no online character creator for the TTRPG Mage the Ascension, so the goal of this project is to make one and one that doesn't suck. Currently, the goal of this project is to get a working website that has the basic functionalities without much embellishments. 
 
 Current goals:
 

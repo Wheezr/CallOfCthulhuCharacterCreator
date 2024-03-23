@@ -1,5 +1,5 @@
 import "./Physical.css";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import "../Dot.css"
 
 let charismaInit = [
