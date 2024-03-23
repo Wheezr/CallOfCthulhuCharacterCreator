@@ -1,17 +1,17 @@
 import "./Physical.css";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import "../Dot.css"
 
 let strengthInit = [
-  'dot', 'undot', 'undot', 'undot'
+  'undot', 'undot', 'undot', 'undot'
 ];
 
 let dexterityInit = [
-  'dot', 'dot', 'undot', 'undot'
+  'dot', 'undot', 'undot', 'undot'
 ];
 
 let staminaInit = [
-  'dot', 'undot', 'undot', 'undot'
+  'dot', 'dot', 'undot', 'undot'
 ];
 
 export default function Physical() {
@@ -86,6 +86,7 @@ export default function Physical() {
         </div>
       </div>
       <h2>{dotLength(strengths, dexteritys, staminas)}</h2>
+      
     </>
   )
 };
