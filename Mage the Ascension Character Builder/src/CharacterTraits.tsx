@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./CharacterTraits.css";
 
-const UserDetailsInput = () => {
+const CharacterTraits = () => {
   const [userDetails, setUserDetails] = useState({
     name: "",
     nature: "",
