@@ -21,7 +21,7 @@ h2 {
   margin-left: 22.7px;
   margin-right: 5.8px;
   font-size: 22.3px;
-  font-style:normal;
+  font-style: normal;
   font-family: "Arial";
 }
 
@@ -35,5 +35,6 @@ hr {
   color: black;
 }
 
-
-
+.attributeContainer {
+  display: flexbox;
+}

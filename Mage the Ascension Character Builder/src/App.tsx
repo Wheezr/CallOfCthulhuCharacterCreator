@@ -1,12 +1,10 @@
 import CharacterTraits from "./CharacterTraits";
-import Physical from "./Attributes/Physical";
-import Social from "./Attributes/Social";
-import Mental from "./Attributes/Mental";
 import Dot from "./Dot";
 import React from "react";
 import "./App.css";
 import { useState } from "react";
 import Title from "./Title";
+import CombinedAttributes from "./Attributes/CombinedAttributes";
 
 let selectionInit = [
   { value: "Primary", state: false },
@@ -22,7 +20,7 @@ function App() {
     <>
       {<Title />}
       {<CharacterTraits />}
-      {<Physical />}
+      {<CombinedAttributes />}
       <h1>{selected1}</h1>
       <select
         name="Point Allocate"
@@ -42,9 +40,6 @@ function App() {
           </option>
         ))}
       </select>
-      {/* { <Social />}
-      
-      { <Mental />} */}
     </>
   );
 }

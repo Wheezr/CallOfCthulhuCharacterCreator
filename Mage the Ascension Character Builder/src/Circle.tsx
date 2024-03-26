@@ -1,4 +1,5 @@
-import "./Circle.css"
+import "./Circle.css";
+import React from "react";
 
 interface Props {
   onClick: () => void;

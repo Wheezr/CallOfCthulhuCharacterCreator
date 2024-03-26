@@ -53,47 +53,49 @@ export default function Physical() {
 
   return (
     <>
-      <h1>Physical</h1>
-      <div className="container">
-        <h2>Strength</h2>
-        <hr></hr>
-        <span className="dot"></span>
-        <div style={{ display: "inline-block" }}>
-          {strengths.map((item, index) => (
-            <span
-              className={item}
-              onClick={() => pressDot(index, strengths, setStrength)}
-            ></span>
-          ))}
+      <div className="attributeContainer">
+        <h1>Physical</h1>
+        <div className="container">
+          <h2>Strength</h2>
+          <hr></hr>
+          <span className="dot"></span>
+          <div style={{ display: "inline-block" }}>
+            {strengths.map((item, index) => (
+              <span
+                className={item}
+                onClick={() => pressDot(index, strengths, setStrength)}
+              ></span>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="container">
-        <h2>Dexterity</h2>
-        <hr></hr>
-        <span className="dot"></span>
-        <div style={{ display: "inline-block" }}>
-          {dexteritys.map((item, index) => (
-            <span
-              className={item}
-              onClick={() => pressDot(index, dexteritys, setDexterity)}
-            ></span>
-          ))}
+        <div className="container">
+          <h2>Dexterity</h2>
+          <hr></hr>
+          <span className="dot"></span>
+          <div style={{ display: "inline-block" }}>
+            {dexteritys.map((item, index) => (
+              <span
+                className={item}
+                onClick={() => pressDot(index, dexteritys, setDexterity)}
+              ></span>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="container">
-        <h2>Stamina</h2>
-        <hr></hr>
-        <span className="dot"></span>
-        <div style={{ display: "inline-block" }}>
-          {staminas.map((item, index) => (
-            <span
-              className={item}
-              onClick={() => pressDot(index, staminas, setStamina)}
-            ></span>
-          ))}
+        <div className="container">
+          <h2>Stamina</h2>
+          <hr></hr>
+          <span className="dot"></span>
+          <div style={{ display: "inline-block" }}>
+            {staminas.map((item, index) => (
+              <span
+                className={item}
+                onClick={() => pressDot(index, staminas, setStamina)}
+              ></span>
+            ))}
+          </div>
         </div>
+        <h2>{dotLength(strengths, dexteritys, staminas)}</h2>
       </div>
-      <h2>{dotLength(strengths, dexteritys, staminas)}</h2>
     </>
   );
 }
