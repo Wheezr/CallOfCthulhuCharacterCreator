@@ -1,14 +1,15 @@
 import CharacterTraits from "./CharacterTraits";
 import Physical from "./Attributes/Physical";
 import Dot from "./Dot";
-import UserDetailsInput from "./UserDetailsInput";
 import React from "react";
 import "./App.css";
+import Title from "./Title";
 
 function App() {
   return (
     <div>
-      <UserDetailsInput />
+      <Title />
+      <CharacterTraits />
       <Physical />
     </div>
   );
