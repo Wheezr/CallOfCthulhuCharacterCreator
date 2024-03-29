@@ -1,20 +1,5 @@
 import "./Physical.css";
 import { Dispatch, SetStateAction, useState } from "react";
-<<<<<<< HEAD
-import "../Dot.css"
-
-let strengthInit = [
-  'undot', 'undot', 'undot', 'undot'
-];
-
-let dexterityInit = [
-  'dot', 'undot', 'undot', 'undot'
-];
-
-let staminaInit = [
-  'dot', 'dot', 'undot', 'undot'
-];
-=======
 import "../Dot.css";
 import React from "react";
 
@@ -23,7 +8,6 @@ let strengthInit = ["undot", "undot", "undot", "undot"];
 let dexterityInit = ["dot", "undot", "undot", "undot"];
 
 let staminaInit = ["dot", "dot", "undot", "undot"];
->>>>>>> aac6a3376a0dbecb0bd13370f24657981d9a9273
 
 export default function Physical() {
   const [strengths, setStrength] = useState(strengthInit);
@@ -112,11 +96,8 @@ export default function Physical() {
         </div>
         <h2>{dotLength(strengths, dexteritys, staminas)}</h2>
       </div>
-<<<<<<< HEAD
       <h2>{dotLength(strengths, dexteritys, staminas)}</h2>
       
-=======
->>>>>>> aac6a3376a0dbecb0bd13370f24657981d9a9273
     </>
   );
 }

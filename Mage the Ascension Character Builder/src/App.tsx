@@ -1,15 +1,11 @@
 import CharacterTraits from "./CharacterTraits";
-<<<<<<< HEAD
 import { Dispatch, SetStateAction, useState } from "react";
 import Physical from "./Attributes/Physical";
 import Social from "./Attributes/Social";
 import Mental from "./Attributes/Mental";
-=======
->>>>>>> aac6a3376a0dbecb0bd13370f24657981d9a9273
 import Dot from "./Dot";
 import React from "react";
 import "./App.css";
-import { useState } from "react";
 import Title from "./Title";
 import CombinedAttributes from "./Attributes/CombinedAttributes";
 
@@ -18,12 +14,6 @@ let selectionInit = [
   { value: "Secondary", state: false },
   { value: "Tertiary", state: false },
 ];
-
-let selectionInit = [
-  {value: 'Primary', state: false},
-  {value: 'Secondary', state: false},
-  {value: 'Tertiary', state: false}
-]
 
 function App() {
   const [selection, changeSelection] = useState(selectionInit);

@@ -1,12 +1,6 @@
 import "./Physical.css";
 import { Dispatch, SetStateAction, useState } from "react";
-<<<<<<< HEAD
 import "../Dot.css"
-=======
-import "../Dot.css";
-import React from "react";
-import Physical from "./Physical";
->>>>>>> aac6a3376a0dbecb0bd13370f24657981d9a9273
 
 let perceptionInit = ["dot", "dot", "dot", "undot"];
 
