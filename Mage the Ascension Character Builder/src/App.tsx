@@ -29,7 +29,6 @@ function App() {
   const [selection, changeSelection] = useState(selectionInit);
   const [selected1, change1] = useState("None");
 
-<<<<<<< HEAD
   // function pressDot(index: number, array: string[], action: Dispatch<SetStateAction<string[]>>) {
   //   const dot = array.map((c, i) => {
   //     if (i === index && c === 'dot') {
@@ -71,32 +70,6 @@ function App() {
       {/* { <Social />}
       
       { <Mental />} */}
-=======
-  return (
-    <>
-      {<Title />}
-      {<CharacterTraits />}
-      {<CombinedAttributes />}
-      <h1>{selected1}</h1>
-      <select
-        name="Point Allocate"
-        id="Point Allocate"
-        onChange={(e) => console.log(e.target.disabled)}
-      >
-        <option disabled selected value>
-          {" "}
-          -- selection an option --
-        </option>
-        {selection.map((select) => (
-          <option
-            disabled={select.state === true ? true : false}
-            value={select.value}
-          >
-            {select.value}
-          </option>
-        ))}
-      </select>
->>>>>>> aac6a3376a0dbecb0bd13370f24657981d9a9273
     </>
   );
 }
