@@ -6,50 +6,75 @@ import Social from "./Social";
 import Mental from "./Mental";
 
 let selectionInit = [
-  { value: "Primary", state: false },
-  { value: "Secondary", state: false },
-  { value: "Tertiary", state: false },
+  { value: "Primary", state: false, selected: 0 },
+  { value: "Secondary", state: false, selected: 0 },
+  { value: "Tertiary", state: false, selected: 0 },
 ];
 
 function CombinedAttributes() {
   const [selection, changeSelection] = useState(selectionInit);
-  const [selected1, change1] = useState("None");
 
   function change(
-    value: string,
-    list: { value: string; state: boolean }[],
-    action: Dispatch<SetStateAction<{ value: string; state: boolean }[]>>
+    passed: EventTarget & HTMLSelectElement,
+    list: { value: string; state: boolean; selected: number }[],
+    action: Dispatch<
+      SetStateAction<{ value: string; state: boolean; selected: number }[]>
+    >
   ) {
     const selects = list.map((item) => {
-      if (item.value === value) {
-        return { value: value, state: true };
+      if (passed.value === "-- selection an option --") {
+        if (passed.options.selectedIndex === item.selected) {
+          return { value: item.value, state: false, selected: 0 };
+        } else {
+          return {
+            value: item.value,
+            state: item.state,
+            selected: item.selected,
+          };
+        }
+      } else if (passed.value === item.value) {
+        return {
+          value: passed.value,
+          state: true,
+          selected: passed.options.selectedIndex,
+        };
       } else {
-        return { value: value, state: false };
+        return {
+          value: item.value,
+          state: item.state,
+          selected: item.selected,
+        };
       }
     });
+    console.log(selects);
     action(selects);
+  }
+
+  function checkDisable(state: boolean, selected: number, index: number) {
+    if (state) {
+      if (selected === index) {
+        return true;
+      }
+      return false;
+    }
   }
   return (
     <>
       <div className="attributegrid">
         <div className="attributebox">
           <Physical />
-          <h1>{selected1}</h1>
           <select
-            name="Point Allocate"
-            id="Point Allocate"
-            onChange={(e) => change(e.target.value, selection, changeSelection)}
+            name="Set 1"
+            id="Set 1"
+            onChange={(e) => change(e.target, selection, changeSelection)}
+            style={{ display: "inline-block" }}
           >
-            <option disabled selected value>
-              {" "}
-              -- selection an option --
-            </option>
-            {selection.map((select) => (
+            <option>-- selection an option --</option>
+            {selection.map((item, index) => (
               <option
-                disabled={select.state === true ? true : false}
-                value={select.value}
+                disabled={item.selected === index && item.state ? true : false}
               >
-                {select.value}
+                {item.value}
               </option>
             ))}
           </select>
@@ -57,10 +82,45 @@ function CombinedAttributes() {
 
         <div className="attributebox">
           <Social />
+          <select
+            name="Set 2"
+            id="Set 2"
+            onChange={(e) => change(e.target, selection, changeSelection)}
+            style={{ display: "inline-block" }}
+          >
+            <option>-- selection an option --</option>
+            {selection.map((item, index) => (
+              <option
+                disabled={
+                  item.selected === index && item.state === true ? true : false
+                }
+              >
+                {item.value}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div className="attributebox">
           <Mental />
+          <select
+            name="Set 3"
+            id="Set 3"
+            onChange={(e) => change(e.target, selection, changeSelection)}
+            style={{ display: "inline-block" }}
+          >
+            <option>-- selection an option --</option>
+            {selection.map((item, index) => (
+              <option
+                id={item.value}
+                disabled={
+                  item.selected === index && item.state === true ? true : false
+                }
+              >
+                {item.value}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
     </>
