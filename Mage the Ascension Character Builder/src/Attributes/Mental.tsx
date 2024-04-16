@@ -1,6 +1,8 @@
 import "./Physical.css";
 import { Dispatch, SetStateAction, useState } from "react";
-import "../Dot.css"
+import "../Dot.css";
+import React from "react";
+import Physical from "./Physical";
 
 let perceptionInit = ["dot", "dot", "dot", "undot"];
 
@@ -57,43 +59,53 @@ export default function Mental() {
         <div className="container">
           <h2>Perception</h2>
           <hr></hr>
-          <span className="dot"></span>
-          <div style={{ display: "inline-block" }}>
-            {strengths.map((item, index) => (
-              <span
-                className={item}
-                onClick={() => pressDot(index, strengths, setStrength)}
-              ></span>
-            ))}
+          <div className="container">
+            <span className="dot"></span>
+            <div style={{ display: "inline-block" }}>
+              {strengths.map((item, index) => (
+                <span
+                  className={item}
+                  onClick={() => pressDot(index, strengths, setStrength)}
+                ></span>
+              ))}
+            </div>
           </div>
         </div>
         <div className="container">
           <h2>Intelligence</h2>
           <hr></hr>
-          <span className="dot"></span>
-          <div style={{ display: "inline-block" }}>
-            {dexteritys.map((item, index) => (
-              <span
-                className={item}
-                onClick={() => pressDot(index, dexteritys, setDexterity)}
-              ></span>
-            ))}
+          <div className="container">
+            <span className="dot"></span>
+            <div style={{ display: "inline-block" }}>
+              {dexteritys.map((item, index) => (
+                <span
+                  className={item}
+                  onClick={() => pressDot(index, dexteritys, setDexterity)}
+                ></span>
+              ))}
+            </div>
           </div>
         </div>
         <div className="container">
-          <h2>Wits</h2>
+          <h2>
+            Wits&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </h2>
           <hr></hr>
-          <span className="dot"></span>
-          <div style={{ display: "inline-block" }}>
-            {staminas.map((item, index) => (
-              <span
-                className={item}
-                onClick={() => pressDot(index, staminas, setStamina)}
-              ></span>
-            ))}
+          <div className="container">
+            <span className="dot"></span>
+            <div style={{ display: "inline-block" }}>
+              {staminas.map((item, index) => (
+                <span
+                  className={item}
+                  onClick={() => pressDot(index, staminas, setStamina)}
+                ></span>
+              ))}
+            </div>
           </div>
         </div>
-        <h2>{dotLength(strengths, dexteritys, staminas)}</h2>
+        <div className="attributeContainer">
+          <h2>{dotLength(strengths, dexteritys, staminas)}</h2>
+        </div>
       </div>
     </>
   );

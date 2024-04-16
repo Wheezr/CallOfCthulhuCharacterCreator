@@ -150,13 +150,6 @@ const CharacterTraits = () => {
           />
         </div>
       </div>
-
-      {/* Temp text box to show that it records and updates */}
-      <textarea
-        className="usertextArea"
-        value={JSON.stringify(userDetails, null, 2)}
-        readOnly
-      />
     </div>
   );
 };
