@@ -15,32 +15,34 @@ function CombinedAttributes() {
   const [selection, changeSelection] = useState(selectionInit);
   const [selected1, change1] = useState("None");
 
-  function change(value: string,
+  function change(value: EventTarget & HTMLSelectElement,
                   list: {value: string, state: boolean}[],
                   action: Dispatch<SetStateAction<{value: string, state: boolean}[]>>) {
-  const selects = list.map((item) =>{
-    if (item.value === value) {
-      return {value: value, state: true};
-    } else {
-      return {value: value, state: false};
-    }
-  })
-    action(selects);
+    const selects = list.map((item) =>{
+      if (item.value === value.value) {
+        return {value: value.value, state: true};
+      } else {
+        return {value: item.value, state: false};
+      }
+    })
+      action(selects);
   };
   return (
     <>
       <div className="attributegrid">
         <Physical />
         <h1>{selected1}</h1>
-        <select name="Point Allocate" id="Point Allocate" onChange={(e) => change(e.target.value, selection, changeSelection)}>
-          <option disabled selected value> -- selection an option --</option>
-          {selection.map((select) => 
-          <option disabled={select.state === true ? true : false} 
-                  value={select.value}
-          >{select.value}</option>)}
+        <select name="Point Allocate" 
+                id="Point Allocate" 
+                onChange={(e) => change(e.target, selection, changeSelection)}
+                style={{display: "inline-block"}}>
+          <option> -- selection an option --</option>
+          {selection.map((item, index) => (
+            <option key={index}>{item.value}</option>
+          ))}
         </select>
-        <Social />
-        <Mental />
+        {/* <Social />
+        <Mental /> */}
       </div>
     </>
   );

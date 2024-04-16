@@ -14,11 +14,10 @@ export default function Physical() {
   const [dexteritys, setDexterity] = useState(dexterityInit);
   const [staminas, setStamina] = useState(staminaInit);
 
-  function pressDot(
-    index: number,
-    array: string[],
-    action: Dispatch<SetStateAction<string[]>>
-  ) {
+  function pressDot(index: number,
+                    array: string[],
+                    action: Dispatch<SetStateAction<string[]>>
+                   ) {
     const dot = array.map((c, i) => {
       if (i === index && c === "dot") {
         return "undot";
