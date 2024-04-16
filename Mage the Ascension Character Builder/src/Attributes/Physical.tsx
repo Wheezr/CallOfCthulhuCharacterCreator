@@ -95,8 +95,6 @@ export default function Physical() {
         </div>
         <h2>{dotLength(strengths, dexteritys, staminas)}</h2>
       </div>
-      <h2>{dotLength(strengths, dexteritys, staminas)}</h2>
-      
     </>
   );
 }
