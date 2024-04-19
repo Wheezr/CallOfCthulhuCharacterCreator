@@ -1,6 +1,5 @@
 import "./CombinedAttributes.css";
 import { useState, Dispatch, SetStateAction } from "react";
-import React from "react";
 import Physical from "./Physical";
 import Social from "./Social";
 import Mental from "./Mental";
@@ -50,7 +49,10 @@ function CombinedAttributes() {
     action(selects);
   }
 
-  function checkDisable(state: boolean, selected: number, index: number) {
+
+  function checkDisable(state: boolean,
+                        selected: number,
+                        index: number) {
     if (state) {
       if (selected === index) {
         return true;
@@ -122,6 +124,7 @@ function CombinedAttributes() {
             ))}
           </select>
         </div>
+
       </div>
     </>
   );
