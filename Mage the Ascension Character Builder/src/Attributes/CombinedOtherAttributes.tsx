@@ -5,19 +5,125 @@ import Talents from "./Talents";
 import Skills from "./Skills";
 import Knowledges from "./Knowledges";
 
+let selectionInit = [
+  { value: "Primary", state: false, selected: 0 },
+  { value: "Secondary", state: false, selected: 0 },
+  { value: "Tertiary", state: false, selected: 0 },
+];
+
 function CombinedOtherStats() {
+  const [selection, changeSelection] = useState(selectionInit);
+
+  function change(
+    passed: EventTarget & HTMLSelectElement,
+    list: { value: string; state: boolean; selected: number }[],
+    action: Dispatch<
+      SetStateAction<{ value: string; state: boolean; selected: number }[]>
+    >
+  ) {
+    const selects = list.map((item) => {
+      if (passed.value === "-- selection an option --") {
+        if (passed.options.selectedIndex === item.selected) {
+          return { value: item.value, state: false, selected: 0 };
+        } else {
+          return {
+            value: item.value,
+            state: item.state,
+            selected: item.selected,
+          };
+        }
+      } else if (passed.value === item.value) {
+        return {
+          value: passed.value,
+          state: true,
+          selected: passed.options.selectedIndex,
+        };
+      } else {
+        return {
+          value: item.value,
+          state: item.state,
+          selected: item.selected,
+        };
+      }
+    });
+    console.log(selects);
+    action(selects);
+  }
+
+  function checkDisable(state: boolean, selected: number, index: number) {
+    if (state) {
+      if (selected === index) {
+        return true;
+      }
+      return false;
+    }
+  }
   return (
-    <div className="attributegrid">
-      <div className="attributebox">
-        <Talents />
+    <>
+      <div className="attributegrid">
+        <div className="attributebox">
+          <Talents />
+          <select
+            name="Set 1"
+            id="Set 1"
+            onChange={(e) => change(e.target, selection, changeSelection)}
+            style={{ display: "inline-block" }}
+          >
+            <option>-- selection an option --</option>
+            {selection.map((item, index) => (
+              <option
+                disabled={item.selected === index && item.state ? true : false}
+              >
+                {item.value}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="attributebox">
+          <Skills />
+          <select
+            name="Set 2"
+            id="Set 2"
+            onChange={(e) => change(e.target, selection, changeSelection)}
+            style={{ display: "inline-block" }}
+          >
+            <option>-- selection an option --</option>
+            {selection.map((item, index) => (
+              <option
+                disabled={
+                  item.selected === index && item.state === true ? true : false
+                }
+              >
+                {item.value}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="attributebox">
+          <Knowledges />
+          <select
+            name="Set 3"
+            id="Set 3"
+            onChange={(e) => change(e.target, selection, changeSelection)}
+            style={{ display: "inline-block" }}
+          >
+            <option>-- selection an option --</option>
+            {selection.map((item, index) => (
+              <option
+                id={item.value}
+                disabled={
+                  item.selected === index && item.state === true ? true : false
+                }
+              >
+                {item.value}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
-      <div className="attributebox">
-        <Skills />
-      </div>
-      <div className="attributebox">
-        <Knowledges />
-      </div>
-    </div>
+    </>
   );
 }
 
