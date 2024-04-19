@@ -4,6 +4,7 @@ import Dot from "./Dot";
 import Title from "./Title";
 import CombinedAttributes from "./Attributes/CombinedAttributes";
 import "./App.css";
+import CombinedOtherStats from "./Attributes/CombinedOtherStats";
 
 function App() {
   const [scale, setScale] = useState(1);
@@ -13,8 +14,11 @@ function App() {
       const scaleAdjustment = document.documentElement.clientWidth / 1500;
       setScale(scaleAdjustment);
     }
+
     handleResize();
+
     window.addEventListener("resize", handleResize);
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -26,6 +30,7 @@ function App() {
       <Title />
       <CharacterTraits />
       <CombinedAttributes />
+      <CombinedOtherStats />
     </div>
   );
 }
